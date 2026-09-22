@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.1.3
+
+* Android build modernised for AGP 9 / Kotlin Gradle Plugin 2.x: `compileSdk` 37, Java 17, `kotlin { compilerOptions { jvmTarget } }` replaces the removed `kotlinOptions {}` block, `minSdk` 21. `AppSignatureHelper` treats a null `PackageInfo.signatures` as empty, which the SDK 37 stubs now require.
+
 ## 4.1.2
 
 * Drop the iOS platform: the iOS plugin was an empty stub (OTP autofill on iOS is provided by the system keyboard through `textContentType: oneTimeCode`). The package is now Android-only, which removes the Swift Package Manager warning in Flutter 3.47+.
