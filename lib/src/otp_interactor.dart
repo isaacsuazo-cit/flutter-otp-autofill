@@ -68,6 +68,7 @@ class OTPInteractor {
   /// This method should be called in the `dispose` method of the widget
   /// or when you no longer need to listen for OTP codes.
   Future<Object?> stopListenForCode() {
+    if (!_platform.isAndroid) return Future<Object?>.value();
     return _channel.invokeMethod<Object>(stopListenForCodeMethod);
   }
 

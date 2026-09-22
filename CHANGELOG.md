@@ -1,5 +1,10 @@
 # Changelog
 
+## 4.1.2
+
+* Drop the iOS platform: the iOS plugin was an empty stub (OTP autofill on iOS is provided by the system keyboard through `textContentType: oneTimeCode`). The package is now Android-only, which removes the Swift Package Manager warning in Flutter 3.47+.
+* `stopListenForCode` is a no-op on non-Android platforms instead of calling the method channel.
+
 ## 4.1.1
 
 * **SECURITY FIX**: Fix Intent Redirection vulnerability in Android implementation

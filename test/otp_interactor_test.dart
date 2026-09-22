@@ -272,6 +272,18 @@ void main() {
       );
 
       test(
+        'stopListenForCode is a no-op that never touches the channel',
+        () async {
+          when(() => platformWrapper.isAndroid).thenReturn(false);
+
+          final result = await otpInteractor.stopListenForCode();
+
+          expect(result, isNull);
+          verifyNever(() => methodChannel.invokeMethod<Object>(any()));
+        },
+      );
+
+      test(
         'startListenUserConsent',
         () async {
           when(() => platformWrapper.isAndroid).thenReturn(false);
